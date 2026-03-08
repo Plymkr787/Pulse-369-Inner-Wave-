@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "Pulse 369 Inner Wave",
+    "slug": "pulse-369-inner-wave",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0a0a0f"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pulse369.innerwave",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "UIBackgroundModes": ["audio"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0a0a0f"
+      },
+      "package": "com.pulse369.innerwave",
+      "versionCode": 1
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-av",
+      "expo-linear-gradient"
+    ],
+    "extra": {
+      "supabaseUrl": "YOUR_SUPABASE_URL",
+      "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
+    }
+  }
+}
