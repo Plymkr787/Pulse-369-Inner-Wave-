@@ -1,35 +1,31 @@
 name: EAS Build
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 jobs:
-  build-android:
+  build:
     runs-on: ubuntu-latest
-
+    env:
+      EXPO_TOKEN: jXQF2vphHl37xhn1YhSn-u67HNQmhAdEhXmiBpA8        # ← replace XXX with your Expo token
+      EAS_PROJECT_ID: 1f2457a3-8346-4742-8a4c-5b1a0473040d     # ← replace XXX with your Project ID
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: '18'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install
 
       - name: Install EAS CLI
-        run: npm install -g eas-cli@latest
+        run: npm install -g eas-cli
 
-      - name: Configure EAS
+      - name: Configure EAS project
         run: eas build:configure
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
 
-      - name: Build Android
-        run: eas build -p android --profile preview
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+      - name: Trigger Android & iOS builds
+        run: eas build --platform all --profile preview
