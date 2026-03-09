@@ -33,10 +33,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
-      "expo-av",
-      "expo-linear-gradient"
-    ],
     "extra": {
       "supabaseUrl": "YOUR_SUPABASE_URL",
       "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
